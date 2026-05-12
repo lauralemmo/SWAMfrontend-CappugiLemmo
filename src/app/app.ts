@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
-import { InserimentoEsercizioComponent } from './inserimento-esercizio/inserimento-esercizio';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [InserimentoEsercizioComponent],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  imports: [RouterOutlet],
+  template: `
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  `
 })
-export class App {
-  title = 'SWAMfrontend-CappugiLemmo';
-}
+export class App {}
