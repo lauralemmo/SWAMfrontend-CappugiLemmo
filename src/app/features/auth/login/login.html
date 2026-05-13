@@ -1,0 +1,20 @@
+<div class="login-container">
+  <h2>Accedi</h2>
+
+  <input
+    [(ngModel)]="credentials.username"
+    placeholder="Username"
+    class="login-input"
+  >
+
+  <input
+    [(ngModel)]="credentials.password"
+    type="password"
+    placeholder="Password"
+    class="login-input"
+  >
+
+  <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+  <button (click)="onLogin()" class="login-btn">Accedi</button>
+</div>

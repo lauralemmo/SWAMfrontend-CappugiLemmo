@@ -1,0 +1,14 @@
+<div class="form-container">
+  <h2>Aggiungi un nuovo Esercizio</h2>
+
+  <label for="name">Nome Esercizio</label>
+  <input type="text" id="name" [(ngModel)]="exercise.name" placeholder="Es. Panca Piana">
+
+  <label for="description">Descrizione</label>
+  <input type="text" id="description" [(ngModel)]="exercise.description" placeholder="Es. Esercizio per il petto">
+
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+  <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+
+  <button (click)="salvaEsercizio()">Salva nel Database</button>
+</div>

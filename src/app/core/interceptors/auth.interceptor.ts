@@ -1,9 +1,9 @@
 import { HttpInterceptorFn } from '@angular/common/http';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
-  const token = localStorage.getItem('auth_token');
+  // Se localStorage è undefined (raro ma succede), questo crasha
+  const token = typeof window !== 'undefined' ? localStorage.getItem('auth_token') : null;
 
-  // Se abbiamo un token, aggiungiamolo all'header Authorization
   if (token) {
     const cloned = req.clone({
       setHeaders: {
@@ -12,6 +12,5 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
     });
     return next(cloned);
   }
-
   return next(req);
 };

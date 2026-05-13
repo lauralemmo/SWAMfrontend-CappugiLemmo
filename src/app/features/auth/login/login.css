@@ -1,0 +1,36 @@
+.login-container {
+  text-align: center;
+  margin-top: 50px;
+  font-family: sans-serif;
+}
+
+.login-input {
+  display: block;
+  margin: 10px auto;
+  padding: 8px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 250px;
+}
+
+.login-btn {
+  margin-top: 15px;
+  padding: 10px 25px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background: #0056b3;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
