@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { LoginService } from '../services/login'; // Importa la classe esportata dal servizio
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';  // ← aggiungere
+import { Router, RouterLink } from '@angular/router';  // ← aggiungere
 import { NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, NgIf],  // ← aggiungere NgIf
+  imports: [CommonModule, RouterLink, FormsModule, NgIf],  // ← aggiungere NgIf
   templateUrl: './login.html',   // ← usare file esterno
   styleUrl: './login.css'
 })
@@ -32,12 +33,25 @@ export class LoginComponent { // Deve esserci 'export'
     this.errorMessage = '';  // reset errore ad ogni tentativo
     this.loginService.login(this.credentials).subscribe({
       next: (res: any) => {
-        this.loginService.saveToken(res.token);
-        this.router.navigate(['/inserimento-esercizio']);  // ← redirect dopo login
+        localStorage.setItem('token', res.token);
+        localStorage.setItem('role', res.role);
+        localStorage.setItem('username', res.username);
+        localStorage.setItem('idUser', res.idUser.toString());
+
+        if (res.role === 'ADMIN') {
+          this.router.navigate(['/admin/dashboard']); // Rotta Admin
+        } else if (res.role === 'ATHLETE') {
+          this.router.navigate(['/athlete/dashboard']); // Rotta Atleta
+        } else if (res.role === 'PT'){
+          this.router.navigate(['/pt/dashboard']); // Rotta PT
+        }else {
+          this.router.navigate(['/inserimento-esercizio']); // Default (PER ORA) -------- DA MODIFICARE!
+        }
       },
-      error: () => {
-        this.errorMessage = 'Username o password non validi.';  // ← niente alert()
-      }
+      error: (err) => {
+      console.error('Login fallito', err);
+      alert('Credenziali non valide o errore del server');
+    }
     });
-  }
+}
 }

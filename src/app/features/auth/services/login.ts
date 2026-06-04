@@ -19,14 +19,14 @@ export class LoginService {
   }
 
   saveToken(token: string) {
-    localStorage.setItem('auth_token', token);
+    localStorage.setItem('token', token);
   }
 
   getToken() {
-    return localStorage.getItem('auth_token');
+    return localStorage.getItem('token');
   }
 
   logout() {
-    localStorage.removeItem('auth_token');
+    localStorage.removeItem('token');
   }
 }

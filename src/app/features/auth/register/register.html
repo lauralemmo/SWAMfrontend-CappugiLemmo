@@ -1,0 +1,91 @@
+<div class="register-container">
+  <h2>Registrazione Nuovo Atleta</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+    <fieldset>
+      <legend>Dati Personali</legend>
+
+      <div>
+        <label>Nome:</label>
+        <input type="text" formControlName="name">
+      </div>
+
+      <div>
+        <label>Cognome:</label>
+        <input type="text" formControlName="surname">
+      </div>
+
+      <div>
+        <label>Codice Fiscale:</label>
+        <input type="text" formControlName="tax_code" maxlength="16">
+      </div>
+
+      <div>
+        <label>Data di Nascita:</label>
+        <input type="date" formControlName="birth_date">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Contatti & Accesso</legend>
+
+      <div>
+        <label>Email:</label>
+        <input type="email" formControlName="email">
+      </div>
+
+      <div>
+        <label>Telefono:</label>
+        <input type="text" formControlName="phone_number">
+      </div>
+
+      <div>
+        <label>Username:</label>
+        <input type="text" formControlName="username">
+      </div>
+
+      <div>
+        <label>Password:</label>
+        <input type="password" formControlName="password">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Fisico (Opzionale)</legend>
+
+      <div>
+        <label>Altezza (cm):</label>
+        <input type="text" formControlName="height">
+      </div>
+
+      <div>
+        <label>Peso (kg):</label>
+        <input type="text" formControlName="weight">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Scegli il tuo primo Abbonamento</legend>
+
+      <div>
+        <label>Tipo di Abbonamento:</label>
+        <select formControlName="subscriptionType">
+          <option value="MONTHLY">Mensile (9.99€)</option>
+          <option value="QUARTERLY">Trimestrale (25.99€)</option>
+          <option value="SEMI_ANNUAL">Semestrale (49.99€)</option>
+          <option value="ANNUAL">Annuale (89.99€)</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Data di Inizio:</label>
+        <input type="date" formControlName="startDate">
+      </div>
+    </fieldset>
+
+    <button type="submit" [disabled]="registerForm.invalid">Registrati</button>
+  </form>
+
+  <p>Hai già un account? <a href="/login">Accedi qui</a></p>
+</div>

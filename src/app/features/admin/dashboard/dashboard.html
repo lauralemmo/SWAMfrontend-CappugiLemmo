@@ -1,0 +1,76 @@
+<div class="admin-container" style="padding: 20px; font-family: sans-serif;">
+  <header style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #ccc; padding-bottom: 10px;">
+    <h1>Pannello di Controllo Amministratore</h1>
+    <button (click)="logout()" style="background-color: #dc3545; color: white; padding: 8px 15px; border: none; cursor: pointer; font-weight: bold;">Logout</button>
+  </header>
+
+  <div class="dashboard-grid" style="display: flex; gap: 30px; margin-top: 20px; flex-wrap: wrap;">
+
+    <div class="card-form" style="flex: 1; min-width: 300px; border: 1px solid #ddd; padding: 20px; border-radius: 8px; background: #f9f9f9;">
+      <h2>1. Registra Nuovo Personal Trainer</h2>
+      <form [formGroup]="ptForm" (ngSubmit)="onPtSubmit()">
+
+        <div class="form-group" style="margin-bottom: 12px;">
+          <label style="display: block; margin-bottom: 5px; font-weight: bold;">Nome:</label>
+          <input type="text" formControlName="name" style="width: 100%; padding: 8px; box-sizing: border-box;">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 12px;">
+          <label style="display: block; margin-bottom: 5px; font-weight: bold;">Cognome:</label>
+          <input type="text" formControlName="surname" style="width: 100%; padding: 8px; box-sizing: border-box;">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 12px;">
+          <label style="display: block; margin-bottom: 5px; font-weight: bold;">Email:</label>
+          <input type="email" formControlName="email" style="width: 100%; padding: 8px; box-sizing: border-box;">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 12px;">
+          <label style="display: block; margin-bottom: 5px; font-weight: bold;">Username d'Accesso:</label>
+          <input type="text" formControlName="username" style="width: 100%; padding: 8px; box-sizing: border-box;">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 12px;">
+          <label style="display: block; margin-bottom: 5px; font-weight: bold;">Password:</label>
+          <input type="password" formControlName="password" style="width: 100%; padding: 8px; box-sizing: border-box;">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 15px;">
+          <label style="display: block; margin-bottom: 5px; font-weight: bold;">Stipendio (€):</label>
+          <input type="number" formControlName="salary" style="width: 100%; padding: 8px; box-sizing: border-box;">
+        </div>
+
+        <button type="submit" [disabled]="ptForm.invalid" style="width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; font-weight: bold; cursor: pointer;">
+          Salva Personal Trainer
+        </button>
+      </form>
+    </div>
+
+    <div class="card-form" style="flex: 1; min-width: 300px; border: 1px solid #ddd; padding: 20px; border-radius: 8px; background: #f9f9f9;">
+      <h2>2. Crea un Nuovo Corso</h2>
+      <form [formGroup]="courseForm" (ngSubmit)="onCourseSubmit()">
+
+        <div class="form-group" style="margin-bottom: 12px;">
+          <label style="display: block; margin-bottom: 5px; font-weight: bold;">Nome Corso:</label>
+          <input type="text" formControlName="name" placeholder="Es. Crossfit, Pilates..." style="width: 100%; padding: 8px; box-sizing: border-box;">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 12px;">
+          <label style="display: block; margin-bottom: 5px; font-weight: bold;">Posti Massimi Disponibili:</label>
+          <input type="number" formControlName="numMax" style="width: 100%; padding: 8px; box-sizing: border-box;">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 15px;">
+          <label style="display: block; margin-bottom: 5px; font-weight: bold;">ID Personal Trainer Responsabile:</label>
+          <input type="number" formControlName="idPersonalTrainer" placeholder="Inserisci l'ID numerico ottenuto dallo step 1" style="width: 100%; padding: 8px; box-sizing: border-box;">
+          <small style="color: #666; display: block; margin-top: 4px;">Inserisci prima il PT a sinistra per generare un ID valido.</small>
+        </div>
+
+        <button type="submit" [disabled]="courseForm.invalid" style="width: 100%; padding: 10px; background-color: #28a745; color: white; border: none; font-weight: bold; cursor: pointer;">
+          Salva Corso
+        </button>
+      </form>
+    </div>
+
+  </div>
+</div>
