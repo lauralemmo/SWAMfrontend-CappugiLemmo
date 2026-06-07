@@ -1,34 +1,218 @@
-.welcome-container {
-  text-align: center;
-  margin-top: 100px;
-  font-family: sans-serif;
+/* Stile Generale della Pagina */
+body {
+  margin: 0;
+  background-color: #121212;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 1. NAVBAR IN ALTO */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #2d2d2d;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ff4d00; /* Arancione sportivo */
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .login-btn {
-  background: #007bff;
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  font-size: 1.1rem;
-  border-radius: 5px;
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  padding: 8px 20px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  border-radius: 25px;
   cursor: pointer;
-  margin-top: 20px;
-}
-.register-btn {
-  background: #007bff;
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  font-size: 1.1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 20px;
+  transition: all 0.3s ease;
 }
 
 .login-btn:hover {
-  background: #0056b3;
+  background-color: #ffffff;
+  color: #121212;
 }
 
-.register-btn:hover {
-  background: #0056b3;
+/* 2. CONTENITORE CENTRALE */
+.welcome-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.welcome-header h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  letter-spacing: -1px;
+}
+
+.welcome-header p {
+  font-size: 1.2rem;
+  color: #aaaaaa;
+  margin-bottom: 40px;
+}
+
+/* 3. GRIGLIA DELLE CARTE */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+/* Stile base delle schede d'abbonamento interamente cliccabili */
+.pricing-card {
+  background-color: #1a1a1a;
+  border: 1px solid #2d2d2d;
+  border-radius: 12px;
+  padding: 30px 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+  border-color: #ff4d00;
+  box-shadow: 0 10px 20px rgba(255, 77, 0, 0.15);
+}
+
+/* Scheda in evidenza (Semestrale) */
+.pricing-card.featured {
+  border: 2px solid #ff4d00;
+  background-color: #221714; /* Sfondo leggermente caldo */
+  transform: scale(1.03);
+}
+.pricing-card.featured:hover {
+  box-shadow: 0 12px 24px rgba(255, 77, 0, 0.25);
+}
+
+/* Etichette "Ideale per iniziare" / "Il più venduto" */
+.card-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #2d2d2d;
+  color: #ffffff;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 12px;
+  text-transform: uppercase;
+}
+
+.card-badge.highlight {
+  background-color: #ff4d00;
+}
+
+/* Testi interni alla carta */
+.pricing-card h3 {
+  font-size: 1.3rem;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.price-text {
+  font-size: 0.9rem;
+  color: #888888;
+  margin: 15px 0 0 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.price {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ff4d00;
+  margin-bottom: 20px;
+}
+
+.pricing-card.featured .price {
+  color: #ff6a22;
+}
+
+.period {
+  font-size: 1rem;
+  color: #888888;
+  font-weight: normal;
+}
+
+/* Lista delle caratteristiche incluse */
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px 0;
+  text-align: left;
+}
+
+.features li {
+  font-size: 0.95rem;
+  color: #cccccc;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+/* Icona a forma di spunta prima di ogni caratteristica */
+.features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #28a745;
+  font-weight: bold;
+}
+
+/* Bottone Call To Action dentro la carta */
+.cta-btn {
+  background-color: #2d2d2d;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.pricing-card:hover .cta-btn {
+  background-color: #ff4d00;
+}
+
+.cta-btn.text-highlight {
+  background-color: #ff4d00;
+}
+.pricing-card.featured:hover .cta-btn.text-highlight {
+  background-color: #ff6a22;
+}
+
+/* 4. FOOTER DI PAGINA */
+.welcome-footer {
+  margin-top: 30px;
+  color: #888888;
+}
+
+.register-link {
+  color: #ff4d00;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-link:hover {
+  text-decoration: underline;
 }

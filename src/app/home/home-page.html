@@ -1,7 +1,71 @@
-<div class="welcome-container">
-  <h1>Benvenuto nella nostra Palestra!</h1>
-  <p>Gestisci i tuoi allenamenti e le tue prenotazioni in modo semplice e veloce.</p>
+<nav class="navbar">
+  <div class="nav-logo">Palestra SWAM</div>
+  <div class="nav-actions">
+    <button routerLink="/login" class="login-btn">Accedi</button>
+  </div>
+</nav>
 
-  <button routerLink="/login" class="login-btn">Accedi al Sistema</button>
-  <button routerLink="/register" class="register-btn">Registrati come Atleta</button>
+<div class="welcome-container">
+  <header class="welcome-header">
+    <h1>Benvenuto nella nostra Palestra!</h1>
+    <p>Gestisci i tuoi allenamenti, le tue schede e le tue prenotazioni in modo semplice e veloce.</p>
+  </header>
+
+  <section class="pricing-grid">
+
+    <div class="pricing-card" routerLink="/register">
+      <div class="card-badge">Ideale per iniziare</div>
+      <h3>Abbonamento Mensile</h3>
+      <p class="price-text">diventa un atleta a soli</p>
+      <div class="price">9.99€<span class="period">/mese</span></div>
+      <ul class="features">
+        <li>Accesso sala pesi e cardio</li>
+        <li>1 Prenotazione corso attiva alla volta</li>
+        <li>Rinnovo flessibile</li>
+      </ul>
+      <button class="cta-btn">Scegli Mensile</button>
+    </div>
+
+    <div class="pricing-card" routerLink="/register">
+      <h3>Abbonamento Trimestrale</h3>
+      <p class="price-text">diventa un atleta a soli</p>
+      <div class="price">25.99€<span class="period">/3 mesi</span></div>
+      <ul class="features">
+        <li>Accesso completo h24</li>
+        <li>Prenotazioni corsi illimitate</li>
+        <li>Scheda di allenamento inclusa</li>
+      </ul>
+      <button class="cta-btn">Scegli Trimestrale</button>
+    </div>
+
+    <div class="pricing-card featured" routerLink="/register">
+      <div class="card-badge highlight">Il più venduto</div>
+      <h3>Abbonamento Semestrale</h3>
+      <p class="price-text">diventa un atleta a soli</p>
+      <div class="price">49.99€<span class="period">/6 mesi</span></div>
+      <ul class="features">
+        <li>Tutti i vantaggi del trimestrale</li>
+        <li>1 Sessione con Personal Trainer</li>
+        <li>Prezzo super conveniente</li>
+      </ul>
+      <button class="cta-btn text-highlight">Scegli Semestrale</button>
+    </div>
+
+    <div class="pricing-card" routerLink="/register">
+      <h3>Abbonamento Annuale</h3>
+      <p class="price-text">diventa un atleta a soli</p>
+      <div class="price">89.99€<span class="period">/anno</span></div>
+      <ul class="features">
+        <li>Risparmio massimo garantito</li>
+        <li>Supporto PT continuo</li>
+        <li>Sospensione abbonamento fino a 30gg</li>
+      </ul>
+      <button class="cta-btn">Scegli Annuale</button>
+    </div>
+
+  </section>
+
+  <footer class="welcome-footer">
+    <p>Vuoi dare un'occhiata prima? <a routerLink="/register" class="register-link">Registrati gratuitamente come Atleta</a></p>
+  </footer>
 </div>
